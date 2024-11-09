@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-link {
+    position: relative;
+    overflow: hidden; /* Para esconder o sublinhado que aparece */
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; /* Altura do sublinhado */
+    width: 100%; /* Ocupa toda a largura do link */
+    background-color: #FFD700; /* Cor do sublinhado amarelo */
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+    transition: transform 0.3s ease; /* Transição suave */
+  }
+
+  .nav-link:hover::after {
+    transform: translateX(0); /* Move para a posição correta ao passar o mouse */
+  }
+}
